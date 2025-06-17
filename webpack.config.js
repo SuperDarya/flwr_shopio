@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -88,6 +89,17 @@ module.exports = {
     new CompressionPlugin({
       test: /\.(js|css|html|svg)$/,
       algorithm: 'gzip',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public',
+          to: '',
+          globOptions: {
+            ignore: ['**/index.html']
+          }
+        }
+      ]
     })
   ],
   devServer: {
