@@ -2,6 +2,7 @@ services:
   - type: web
     name: flower-shop
     env: node
+    nodeVersion: 18.x
     buildCommand: npm install && npm run build
     startCommand: serve -s dist
     envVars:
