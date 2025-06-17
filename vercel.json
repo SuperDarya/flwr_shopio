@@ -5,13 +5,15 @@
   "framework": "create-react-app",
   "cleanUrls": true,
   "trailingSlash": false,
+  "github": {
+    "silent": true
+  },
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
-  
   "headers": [
     {
       "source": "/(.*)",
@@ -31,7 +33,7 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/images/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -40,7 +42,16 @@
       ]
     },
     {
-      "source": "/(.*)\\.(?:js|css|json|txt|html|ico|svg)$",
+      "source": "/(.*)\\.(?:js|css)$",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(?:png|jpg|jpeg|gif|svg|ico)$",
       "headers": [
         {
           "key": "Cache-Control",
@@ -48,5 +59,8 @@
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
