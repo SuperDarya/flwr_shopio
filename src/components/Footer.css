@@ -1,0 +1,114 @@
+.site-footer {
+    background-color: #040a0a; /* Dark background */
+    color: #ffffff;
+    padding: 20px 20px; /* Further reduced padding */
+    font-family: Oswald, sans-serif;
+    border-top: 1px solid rgba(67, 255, 210, 0.2); /* Subtle turquoise line */
+    position: relative; /* Ensure z-index works */
+    z-index: 999; /* Set a high z-index to ensure clickability */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Changed to center columns */
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 20px; /* Reduced gap between columns */
+}
+
+.footer-section {
+    flex: 0 0 auto; /* Allow sections to take only necessary width */
+    min-width: 180px; /* Adjusted min-width for columns */
+}
+
+.footer-logo-section {
+    flex: 0 0 auto; /* Logo section takes only its content width */
+    margin-right: 10px; /* Reduced space between logo and first column */
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #43ffd2; /* Turquoise headings */
+    margin-bottom: 15px; /* Slightly reduced margin */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px; /* Slightly reduced margin */
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #43ffd2;
+}
+
+.footer-contact-info p,
+.footer-contact-info a {
+    color: #ffffff;
+    font-weight: 300;
+    margin-bottom: 8px; /* Slightly reduced margin */
+    text-decoration: none;
+}
+
+.footer-contact-info p.phone-number {
+    font-size: 18px; /* Slightly reduced font size */
+    font-weight: 700;
+    color: #43ffd2;
+    margin-bottom: 10px; /* Slightly reduced margin */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px; /* Further reduced margin */
+    padding-top: 15px; /* Further reduced padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+    font-size: 13px; /* Slightly reduced font size */
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 30px 15px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px; /* Adjusted gap for mobile */
+    }
+
+    .footer-section {
+        margin-bottom: 0; /* Remove margin for flex column */
+        min-width: unset;
+    }
+
+    .footer-logo-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+    }
+} 

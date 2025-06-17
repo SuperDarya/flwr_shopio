@@ -1,0 +1,298 @@
+.hero {
+    background-image: url('../images/backgroundflowers2.png');
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url('../images/backgroundflowers2.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.shop-title {
+    font-family: Cormorant;
+    font-weight: 300;
+    font-size: 200px;
+    line-height: 100%;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+    position: relative;
+    z-index: 10;
+    margin-top: 50px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slogan {
+    font-family: Oswald;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.catalog-btn {
+    background: #43ffd2;
+    color: black;
+    padding: 15px 50px;
+    text-decoration: none;
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.catalog-btn:hover {
+    background: #7d2253;
+    transform: translateY(-3px);
+}
+
+/* Стили для социальных иконок в hero */
+.hero .hero-social-icons {
+    position: absolute;
+    right: 110px;
+    top: 30%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10;
+    min-width: 180px;
+}
+
+.hero .social-icon {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.hero .social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.hero .social-icon:hover img {
+    transform: scale(1.2);
+}
+
+.hero .hero-phone {
+    color: #43ffd2;
+    text-decoration: none;
+    font-family: Oswald;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.hero .hero-callback {
+    color: #43ffd2;
+    text-decoration: none;
+    font-family: Oswald;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.hero .hero-callback:hover,
+.hero .hero-phone:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.hero .callback-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+/* Стили для корзины в hero */
+.hero .cart-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hero .cart-wrapper {
+    position: relative;
+    display: inline-block;
+    background: rgba(4, 10, 10, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.hero .cart-image {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.hero .cart-counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #43ffd2;
+    color: white;
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero .cart-link:hover .cart-image {
+    transform: scale(1.1);
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1400px) {
+    .hero .hero-social-icons {
+        right: 30px;
+    }
+    
+    .shop-title {
+        font-size: 180px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero .hero-social-icons {
+        right: 20px;
+    }
+    
+    .shop-title {
+        font-size: 160px;
+    }
+}
+
+@media (max-width: 992px) {
+    .shop-title {
+        font-size: 140px;
+    }
+    
+    .slogan {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero .hero-social-icons {
+        position: static;
+        margin-top: 20px;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-width: auto;
+        background: none;
+    }
+    
+    .hero .social-icon {
+        margin: 0 10px;
+    }
+    
+    .hero .hero-phone,
+    .hero .hero-callback {
+        display: none;
+    }
+    
+    .hero .cart-link {
+        margin-top: 15px;
+    }
+    
+    .shop-title {
+        font-size: 100px;
+        margin-top: 30px;
+    }
+    
+    .slogan {
+        font-size: 16px;
+        margin: 15px 0;
+    }
+    
+    .catalog-btn {
+        padding: 12px 40px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 576px) {
+    .shop-title {
+        font-size: 80px;
+        letter-spacing: 0.15em;
+    }
+    
+    .slogan {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+    
+    .catalog-btn {
+        padding: 10px 30px;
+        font-size: 10px;
+    }
+    
+    .hero .cart-wrapper {
+        padding: 8px;
+    }
+    
+    .hero .cart-image {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-title {
+        font-size: 60px;
+        letter-spacing: 0.1em;
+    }
+    
+    .hero {
+        padding: 0 15px;
+    }
+} 

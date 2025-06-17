@@ -1,0 +1,175 @@
+.delivery-page {
+    padding: 120px 20px 80px;
+    background: #040a0a;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.delivery-page::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 930px;
+    height: 660px;
+    background-image: url('../images/dostavka.png');
+    background-size: 930px 660px;
+    background-position: right top;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.delivery-page::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 930px;
+    height: 660px;
+    background-image: url('../images/dostavka.png');
+    background-size: 930px 660px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    z-index: 1;
+}
+
+.delivery-header {
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.delivery-header h1 {
+    font-family: Cormorant;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 100%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.delivery-header p {
+    font-family: Oswald;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+}
+
+.delivery-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.delivery-section,
+.payment-section {
+    margin-bottom: 60px;
+}
+
+.delivery-section h2,
+.payment-section h2 {
+    font-family: Cormorant;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.delivery-methods,
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.delivery-method,
+.payment-method {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #43ffd2;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.delivery-method h3,
+.payment-method h3 {
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #43ffd2;
+    margin-bottom: 15px;
+}
+
+.delivery-method p,
+.payment-method p {
+    font-family: Oswald;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 140%;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.delivery-method ul,
+.payment-method ul {
+    list-style: none;
+    padding: 0;
+}
+
+.delivery-method li,
+.payment-method li {
+    font-family: Oswald;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 140%;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.delivery-method li:before,
+.payment-method li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background-color: #43ffd2;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .delivery-header h1 {
+        font-size: 60px;
+    }
+
+    .delivery-header p {
+        font-size: 16px;
+    }
+
+    .delivery-section h2,
+    .payment-section h2 {
+        font-size: 40px;
+    }
+
+    .delivery-method h3,
+    .payment-method h3 {
+        font-size: 20px;
+    }
+} 
