@@ -1,9 +1,14 @@
 .faq-page {
   padding: 120px 20px 80px;
-  background: #040a0a;
+  background: #181818;
   min-height: 100vh;
   position: relative;
   z-index: 1;
+  background-image: url('../images/backgroundflowers2.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  padding-bottom: 40px;
 }
 
 .faq-page::before {
@@ -39,6 +44,9 @@
   text-align: center;
   max-width: 800px;
   margin: 0 auto 60px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
 }
 
 .faq-header h1 {
@@ -70,6 +78,9 @@
 
 .faq-list {
   margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
 }
 
 .faq-item {
@@ -77,6 +88,9 @@
   border-radius: 20px;
   margin-bottom: 20px;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
+  background: transparent;
 }
 
 .faq-question {
@@ -96,6 +110,9 @@
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 2;
+  background: transparent;
 }
 
 .faq-question:hover {

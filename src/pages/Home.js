@@ -1,17 +1,24 @@
+// Главная страница сайта
 import React from 'react';
-import Hero from '../components/Hero';
-import PopularSection from '../components/PopularSection';
-import OrderSection from '../components/OrderSection';
-import SpecialOccasion from '../components/SpecialOccasion';
-import QuestionsSection from '../components/QuestionsSection';
+// Импортируем секции главной страницы
+import Hero from '../components/Hero'; // Главный баннер
+import PopularSection from '../components/PopularSection'; // Популярные букеты
+import OrderSection from '../components/OrderSection'; // Как сделать заказ
+import SpecialOccasion from '../components/SpecialOccasion'; // Особые случаи
+import QuestionsSection from '../components/QuestionsSection'; // Часто задаваемые вопросы
 
 const Home = () => {
   return (
     <main>
+      {/* Главный баннер */}
       <Hero />
+      {/* Секция популярных букетов */}
       <PopularSection />
+      {/* Секция "Как сделать заказ" */}
       <OrderSection />
+      {/* Секция для особых случаев */}
       <SpecialOccasion />
+      {/* Секция с вопросами */}
       <QuestionsSection />
     </main>
   );

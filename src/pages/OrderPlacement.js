@@ -1,9 +1,11 @@
+// Страница оформления заказа (OrderPlacement)
 import React, { useState } from 'react';
-import './OrderPlacement.css';
+import './OrderPlacement.css'; // Стили для страницы оформления заказа
 import orderBackground from '../images/oformlenie.png';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext'; // Контекст корзины
 
 const OrderPlacement = () => {
+  // Получаем товары из корзины
   const { cartItems, getTotalPrice, clearCart } = useCart();
   const [showModal, setShowModal] = useState(false);
 

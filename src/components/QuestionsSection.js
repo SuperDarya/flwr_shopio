@@ -1,3 +1,4 @@
+// Секция "Остались вопросы?" (QuestionsSection)
 import React, { useState } from 'react';
 
 const QuestionsSection = () => {
@@ -34,6 +35,7 @@ const QuestionsSection = () => {
 
   return (
     <section className="questions-section">
+      {/* Заголовок секции */}
       <div className="questions-container">
         <div className="questions-header">
           <div className="questions-title-wrapper">

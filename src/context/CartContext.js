@@ -1,16 +1,12 @@
+// Контекст корзины для управления товарами в корзине
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Создаём контекст корзины
 const CartContext = createContext();
 
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
-  }
-  return context;
-};
-
+// Провайдер корзины, оборачивает приложение и даёт доступ к корзине всем компонентам
 export const CartProvider = ({ children }) => {
+  // Состояние: список товаров в корзине
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
@@ -20,6 +16,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // Добавить товар в корзину
   const addToCart = (product) => {
     console.log('CartContext: Adding product:', product);
     console.log('Current cart items:', cartItems);
@@ -44,6 +41,7 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Удалить товар из корзины по id
   const removeFromCart = (productId) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
   };
@@ -59,10 +57,12 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  // Очистить корзину
   const clearCart = () => {
     setCartItems([]);
   };
 
+  // Получить количество товаров в корзине
   const getTotalItems = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
@@ -78,6 +78,7 @@ export const CartProvider = ({ children }) => {
     }, 0);
   };
 
+  // Провайдер отдаёт методы и состояние всем дочерним компонентам
   const value = {
     cartItems,
     addToCart,
@@ -93,4 +94,13 @@ export const CartProvider = ({ children }) => {
       {children}
     </CartContext.Provider>
   );
+};
+
+// Хук для использования корзины в компонентах
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  return context;
 }; 

@@ -1,5 +1,6 @@
+// Страница "Часто задаваемые вопросы" (FAQ)
 import React, { useState } from 'react';
-import './FAQ.css';
+import './FAQ.css'; // Стили для страницы FAQ
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -45,6 +46,7 @@ const FAQ = () => {
 
   return (
     <section className="faq-page">
+      {/* Заголовок страницы */}
       <div className="faq-header">
         <h1>Часто задаваемые вопросы</h1>
         <p>Ответы на самые популярные вопросы о наших услугах</p>

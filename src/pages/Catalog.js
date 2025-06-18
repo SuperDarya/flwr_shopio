@@ -1,11 +1,12 @@
+// Страница каталога букетов
 import React, { useState, useMemo } from 'react';
-import './Catalog.css';
-import 'rc-slider/assets/index.css'; // Import rc-slider CSS
-import Slider from 'rc-slider'; // Import Slider component
-import catalogBackground from '../images/catalogbackground.png';
+import './Catalog.css'; // Стили для каталога
+import 'rc-slider/assets/index.css'; // Стили для слайдера цены
+import Slider from 'rc-slider'; // Слайдер для фильтрации по цене
+import catalogBackground from '../images/catalogbackground.png'; // Фон каталога
 // import instIcon from '../images/inst.png'; // Assuming you want Instagram back here
 // import waIcon from '../images/wa.png'; // Assuming you want WhatsApp back here
-import numIcon from '../images/num.png'; // Adding numIcon for the phone icon
+import numIcon from '../images/num.png'; // Иконка телефона
 import bouquet1 from '../images/bouquet1.jpg';
 import bouquet2 from '../images/bouquet2.png';
 import bouquet3 from '../images/bouquet3.png';
@@ -14,8 +15,9 @@ import bouquet5 from '../images/bouquet5.png';
 import bouquet6 from '../images/bouquet6.jpg';
 import bouquet7 from '../images/bouquet7.jpg';
 import bouquet8 from '../images/bouquet8.png';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext'; // Контекст корзины
 
+// Данные о букетах (можно заменить на API)
 const bouquetsData = [
   { id: 1, name: 'НЕЖНОСТЬ', price: 9999, image: bouquet1, tags: ['NEW'], color: ['Белый', 'Розовый'], format: 'Букет', flower: ['Розы'] },
   { id: 2, name: 'АПЕЛЬСИНОВЫЙ РАЙ', price: 4200, image: bouquet2, tags: [], color: ['Желтый', 'Красный'], format: 'Шляпная коробка', flower: ['Розы', 'Пионы'] },
@@ -28,18 +30,23 @@ const bouquetsData = [
 ];
 
 const Catalog = () => {
+  // Получаем методы корзины
   const { cartItems, addToCart } = useCart();
+  // Состояния фильтров
   const [filters, setFilters] = useState({
     color: [],
     flower: [],
     format: [],
-    priceMin: 0, // Initialize with numbers for slider
-    priceMax: 15000, // Set a default max price based on your data
+    priceMin: 0,
+    priceMax: 15000,
   });
-  const [sortOrder, setSortOrder] = useState('default'); // New state for sorting
+  // Сортировка
+  const [sortOrder, setSortOrder] = useState('default');
+  // Состояния для тегов и поиска
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Обработчики фильтров
   const handleCheckboxChange = (e) => {
     const { name, value, checked } = e.target;
     setFilters((prevFilters) => ({
@@ -50,6 +57,7 @@ const Catalog = () => {
     }));
   };
 
+  // Обработчик изменения цены
   const handlePriceChange = (e) => {
     const { name, value } = e.target;
     setFilters((prevFilters) => ({
@@ -58,6 +66,7 @@ const Catalog = () => {
     }));
   };
 
+  // Обработчик слайдера цены
   const handleSliderChange = (value) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -66,6 +75,7 @@ const Catalog = () => {
     }));
   };
 
+  // Сбросить фильтры
   const handleResetFilters = () => {
     setFilters({
       color: [],
@@ -76,47 +86,46 @@ const Catalog = () => {
     });
   };
 
+  // Применить фильтры (можно добавить логику для API)
   const handleApplyFilters = () => {
-    // Logic to apply filters (e.g., fetch data or filter current data)
     console.log('Applying filters:', filters);
   };
 
+  // Сортировка
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);
   };
 
+  // Добавить букет в корзину
   const handleAddToCart = (bouquet) => {
     addToCart(bouquet);
   };
 
+  // Проверить, есть ли букет в корзине
   const isInCart = (bouquetId) => {
     return cartItems.some(item => item.id === bouquetId);
   };
 
+  // Фильтрация и сортировка букетов (useMemo для оптимизации)
   const filteredBouquets = useMemo(() => {
     let currentBouquets = bouquetsData;
-
-    // Filtering logic
+    // Фильтрация по цвету, цветку, формату, цене
     currentBouquets = currentBouquets.filter((bouquet) => {
       const { color: selectedColors, flower: selectedFlowers, format, priceMin, priceMax } = filters;
-
       const matchesColor = selectedColors.length === 0 || selectedColors.some(filterColor => bouquet.color.includes(filterColor));
       const matchesFlower = selectedFlowers.length === 0 || selectedFlowers.some(filterFlower => bouquet.flower.includes(filterFlower));
       const matchesFormat = format.length === 0 || format.includes(bouquet.format);
       const matchesPrice =
         (priceMin === 0 || bouquet.price >= priceMin) &&
         (priceMax === 15000 || bouquet.price <= priceMax);
-
       return matchesColor && matchesFlower && matchesFormat && matchesPrice;
     });
-
-    // Sorting logic
+    // Сортировка по цене
     if (sortOrder === 'price-asc') {
       currentBouquets = [...currentBouquets].sort((a, b) => a.price - b.price);
     } else if (sortOrder === 'price-desc') {
       currentBouquets = [...currentBouquets].sort((a, b) => b.price - a.price);
     }
-
     return currentBouquets;
   }, [filters, sortOrder]);
 

@@ -1,5 +1,6 @@
+// Секция популярных букетов (PopularSection)
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Для перехода к деталям или в корзину
 import bouquet1Image from '../images/bouquet1.jpg';
 import bouquet2Image from '../images/bouquet2.png';
 import bouquet3Image from '../images/bouquet3.png';
@@ -8,11 +9,13 @@ import bouquet5Image from '../images/bouquet5.png';
 import bouquet6Image from '../images/bouquet6.jpg';
 import bouquet7Image from '../images/bouquet7.jpg';
 import bouquet8Image from '../images/bouquet8.png';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext'; // Контекст корзины
 
 const PopularSection = () => {
+  // Состояние для текущего индекса слайдера
   const [currentIndex, setCurrentIndex] = useState(0);
   const bouquetsGridRef = useRef(null);
+  // Получаем методы корзины
   const { cartItems, addToCart } = useCart();
 
   // Определяем ширину экрана для мобильной версии
@@ -23,8 +26,10 @@ const PopularSection = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const itemsPerView = 3; // Количество букетов, видимых одновременно
+  // Количество карточек в слайдере за раз
+  const itemsPerView = 3;
 
+  // Массив популярных букетов
   const popularBouquets = [
     {
       id: 1,
@@ -88,19 +93,23 @@ const PopularSection = () => {
       ]
     : popularBouquets;
 
+  // Обработчик кнопки "назад" в слайдере
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
   };
 
+  // Обработчик кнопки "вперёд" в слайдере
   const handleNext = () => {
     const maxIndex = bouquetsToRender.length - itemsPerView;
     setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? maxIndex : prevIndex + 1));
   };
 
+  // Добавить букет в корзину
   const handleAddToCart = (bouquet) => {
     addToCart(bouquet);
   };
 
+  // Проверить, есть ли букет в корзине
   const isInCart = (bouquetId) => {
     return cartItems.some(item => item.id === bouquetId);
   };

@@ -1,5 +1,6 @@
+// Страница "Контакты"
 import React, { useState } from 'react';
-import './Contacts.css';
+import './Contacts.css'; // Стили для страницы контактов
 import YandexMap from '../components/YandexMap';
 
 const Contacts = () => {
@@ -50,12 +51,14 @@ const Contacts = () => {
 
   return (
     <section className="contacts-page">
+      {/* Заголовок страницы */}
       <div className="contacts-header">
         <h1>Контакты</h1>
         <p>Свяжитесь с нами любым удобным способом</p>
       </div>
 
       <div className="contacts-content">
+        {/* Основная контактная информация */}
         <div className="contacts-info">
           <div className="contact-card">
             <h3>Адрес</h3>

@@ -5,6 +5,7 @@ import specialImage3 from '../images/особ3.png';
 import specialImage4 from '../images/особ4.png';
 import numIcon from '../images/num.png';
 
+// Секция "Букеты для особых случаев" (SpecialOccasion)
 const SpecialOccasion = () => {
   return (
     <section className="special-occasion">

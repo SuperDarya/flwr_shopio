@@ -1,15 +1,18 @@
+// Страница 'О нас' (About)
 import React from 'react';
-import './About.css';
+import './About.css'; // Стили для страницы
 
 const About = () => {
   return (
     <section className="about-page">
       <div className="about-header">
+        {/* Заголовок и подзаголовок */}
         <h1>О нас</h1>
         <p>Создаём для тех, кто ценит свежесть и изящество</p>
       </div>
 
       <div className="about-content">
+        {/* Блок с историей компании */}
         <div className="about-section reverse">
           <div className="about-text">
             <h2>Наша история</h2>

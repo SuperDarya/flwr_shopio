@@ -1,9 +1,11 @@
+// Страница "Доставка и оплата"
 import React from 'react';
-import './Delivery.css';
+import './Delivery.css'; // Стили для страницы доставки
 
 const Delivery = () => {
   return (
     <section className="delivery-page">
+      {/* Заголовок страницы */}
       <div className="delivery-header">
         <h1>Доставка и оплата</h1>
         <p>Удобные способы доставки и оплаты для наших клиентов</p>

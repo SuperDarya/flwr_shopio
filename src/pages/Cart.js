@@ -1,14 +1,18 @@
+// Страница корзины (Cart)
 import React from 'react';
-import { useCart } from '../context/CartContext';
+import './Cart.css'; // Стили для корзины
+import { useCart } from '../context/CartContext'; // Контекст корзины
 import { useNavigate } from 'react-router-dom';
-import './Cart.css';
 
 const Cart = () => {
+  // Получаем состояние и методы корзины
   const { 
     cartItems, 
     removeFromCart, 
     updateQuantity, 
-    getTotalPrice 
+    getTotalPrice,
+    clearCart,
+    getTotalItems
   } = useCart();
   const navigate = useNavigate();
 
@@ -22,6 +26,9 @@ const Cart = () => {
     navigate('/order-placement');
   };
 
+  // Подсчёт общей стоимости товаров
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+
   return (
     <section className="cart-page">
       <div className="cart-header">
@@ -30,8 +37,16 @@ const Cart = () => {
       </div>
 
       <div className="cart-content">
-        {cartItems.length > 0 ? (
+        {/* Если корзина пуста */}
+        {cartItems.length === 0 ? (
+          <div className="empty-cart">
+            <h2>Ваша корзина пуста</h2>
+            <p>Добавьте товары из каталога</p>
+            <a href="/catalog" className="continue-shopping">Перейти в каталог</a>
+          </div>
+        ) : (
           <>
+            {/* Список товаров в корзине */}
             <div className="cart-items">
               {cartItems.map((item) => (
                 <div key={item.id} className="cart-item">
@@ -83,12 +98,6 @@ const Cart = () => {
               <button className="checkout-btn" onClick={handleCheckout}>Оформить заказ</button>
             </div>
           </>
-        ) : (
-          <div className="empty-cart">
-            <h2>Ваша корзина пуста</h2>
-            <p>Добавьте товары из каталога</p>
-            <a href="/catalog" className="continue-shopping">Перейти в каталог</a>
-          </div>
         )}
       </div>
     </section>

@@ -180,6 +180,33 @@
   }
 }
 
+@media (max-width: 600px) {
+  .about-page,
+  .about-content,
+  .about-section,
+  .about-text {
+    padding: 12px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .about-header h1 {
+    font-size: 28px !important;
+    text-align: center !important;
+  }
+  .about-header p,
+  .about-text p {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+    word-break: break-word !important;
+  }
+  .about-text h2 {
+    font-size: 20px !important;
+    text-align: center !important;
+  }
+}
+
 .about-quote-container {
   position: relative;
   margin-top: 100px;
