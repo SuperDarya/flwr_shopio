@@ -193,28 +193,24 @@
 
     .nav-block.active {
         right: 0;
+        display: flex;
     }
 
     .nav-links {
         flex-direction: column;
         gap: 30px;
-        padding: 80px 20px;
-        height: 100%;
-        width: 100%;
-        display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
+        color: #fff;
     }
 
     .nav-links a {
-        font-size: 18px;
-        color: #ffffff;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-        color: #43ffd2;
+        color: #fff !important;
+        font-size: 22px;
+        text-align: center;
+        width: 100%;
+        padding: 15px 0;
     }
 
     .top-bar {
