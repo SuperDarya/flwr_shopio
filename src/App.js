@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 
-import Header from './components/Header';
+// import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
@@ -19,7 +19,7 @@ function App() {
     <CartProvider>
     <Router>
       <div className="main-container flex flex-col min-h-screen">
-        <Header />
+        {/* <Header /> */}
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
