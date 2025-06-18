@@ -576,3 +576,12 @@
         font-size: 12px;
     }
 } 
+@media (max-width: 480px) {
+    h2, .catalog-title, .catalog-section h2 {
+      font-size: 24px !important;
+      letter-spacing: 0.02em !important;
+      word-break: break-word !important;
+      text-align: center !important;
+      line-height: 1.1 !important;
+    }
+  }
