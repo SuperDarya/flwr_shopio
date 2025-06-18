@@ -224,3 +224,24 @@
         height: 2px;
     }
 } 
+.nav-block {
+    background: #222 !important;
+    border: 2px solid red !important;
+    display: flex !important;
+    position: static !important;
+    width: 100vw !important;
+    height: auto !important;
+    z-index: 99999 !important;
+}
+
+.nav-links {
+    background: #333 !important;
+    border: 2px solid lime !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 16px 0 !important;
+}
