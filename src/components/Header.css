@@ -179,23 +179,22 @@
     .nav-block {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 100%;
+        left: 0;
+        right: 0;
+        width: 100vw;
         height: 100vh;
         background: rgba(0, 0, 0, 0.95);
-        margin: 0;
+        margin: 0 !important;
+        padding: 0 !important;
         transition: right 0.3s ease-in-out;
-        z-index: 10001;
-        display: flex;
+        z-index: 20000;
+        display: none;
         align-items: center;
         justify-content: center;
     }
-
     .nav-block.active {
-        right: 0;
         display: flex;
     }
-
     .nav-links {
         flex-direction: column;
         gap: 30px;
@@ -204,18 +203,12 @@
         width: 100%;
         color: #fff;
     }
-
     .nav-links a {
         color: #fff !important;
         font-size: 22px;
         text-align: center;
         width: 100%;
         padding: 15px 0;
-    }
-
-    .top-bar {
-        width: 100%;
-        padding: 15px 20px;
     }
 }
 
