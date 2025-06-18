@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import logoImage from '../images/logo.png';
@@ -7,33 +7,8 @@ import { useCart } from '../context/CartContext';
 const Header = () => {
   const { getTotalItems } = useCart();
   const totalItems = getTotalItems();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMenuOpen]);
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      handleMenuToggle();
-    }
-  };
-
-  const handleLinkClick = () => {
-    setIsMenuOpen(false);
-  };
+  const handleLinkClick = () => {};
 
   return (
     <header className="site-header">
@@ -43,16 +18,7 @@ const Header = () => {
             <img src={logoImage} alt="LoverFlower" />
           </Link>
         </div>
-        <button 
-          className="mobile-menu-button"
-          onClick={handleMenuToggle}
-          onKeyDown={handleKeyDown}
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-        >
-          <span className={`menu-icon ${isMenuOpen ? 'open' : ''}`}></span>
-        </button>
-        <nav className={`nav-block ${isMenuOpen ? 'active' : ''}`}>
+        <nav className="nav-block">
           <ul className="nav-links">
             <li><Link to="/catalog" onClick={handleLinkClick}>Каталог</Link></li>
             <li><Link to="/delivery" onClick={handleLinkClick}>Доставка и оплата</Link></li>
